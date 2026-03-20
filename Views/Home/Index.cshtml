@@ -1,0 +1,54 @@
+﻿@model IEnumerable<BibliotecaWeb.Models.Livro>
+
+@{
+    ViewData["Title"] = "Página Inicial";
+}
+
+<div class="hero-section text-center">
+    <h1 class="display-4 fw-bold">@ViewData["NomeBiblioteca"]</h1>
+    <p class="lead mt-3">@ViewData["Descricao"]</p>
+</div>
+
+<div class="row text-center mb-5 mt-4">
+    <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm p-4 border-0"> 
+            <div class="display-4 mb-3">🔍</div>
+            <h4 class="fw-bold mb-3" style="color: var(--cor-secundaria);">1. Busque</h4>
+            <p class="text-muted mb-0">Explore nosso vasto acervo focado em tecnologia e literatura clássica.</p>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm p-4 border-0">
+            <div class="display-4 mb-3">📖</div>
+            <h4 class="fw-bold mb-3" style="color: var(--cor-secundaria);">2. Escolha</h4>
+            <p class="text-muted mb-0">Acesse os detalhes da obra, leia os resumos e conheça a história dos autores.</p>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm p-4 border-0">
+            <div class="display-4 mb-3">🚀</div>
+            <h4 class="fw-bold mb-3" style="color: var(--cor-secundaria);">3. Evolua</h4>
+            <p class="text-muted mb-0">Utilize o conhecimento adquirido para alavancar seus estudos no curso!</p>
+        </div>
+    </div>
+</div>
+
+<hr class="mb-5" />
+
+<h3 class="mb-4 fw-bold" style="color: var(--cor-primaria);">Nosso Acervo</h3>
+
+<div class="scrolling-wrapper">
+    @foreach (var livro in Model)
+    {
+        <div class="card-item">
+            <div class="card shadow-sm h-100 border-0">
+                <img src="@livro.Capa" class="card-img-top rounded-top" alt="Capa de @livro.Titulo" style="height: 380px; object-fit: cover;">
+                <div class="card-body d-flex flex-column px-3">
+                    <h6 class="card-title fw-bold">@livro.Titulo</h6>
+                    <p class="card-text text-muted small mb-3 text-truncate">@livro.Resumo</p>
+                    <a href="@Url.Action("Detalhes", "Livro", new { id = livro.Id })" class="btn btn-sm btn-primary w-100 mt-auto">Ver Detalhes</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

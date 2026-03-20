@@ -1,0 +1,141 @@
+/* --- PALETA DE CORES E VARIÁVEIS --- */
+:root {
+    --cor-primaria: #1A365D; /* Azul Escuro - Foco e Sabedoria */
+    --cor-secundaria: #DD6E42; /* Laranja - Ação e Energia */
+    --cor-fundo: #F8F9FA; /* Off-white - Conforto visual */
+    --cor-texto: #333333; /* Cinza Escuro - Legibilidade */
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* --- BARRA DE NAVEGAÇÃO --- */
+.navbar {
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+    border-bottom: 3px solid var(--cor-primaria) !important;
+}
+
+.navbar-brand {
+    color: var(--cor-primaria) !important;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.nav-link:hover {
+    color: var(--cor-secundaria) !important;
+}
+
+/* --- BOTÕES DE AÇÃO --- */
+.btn-primary {
+    background-color: var(--cor-secundaria);
+    border-color: var(--cor-secundaria);
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.btn-primary:hover {
+    background-color: #C55B31; /* Laranja mais escuro */
+    border-color: #C55B31;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(221, 110, 66, 0.3);
+}
+
+.btn-outline-primary {
+    color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+    border-radius: 8px;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+/* --- CARDS DOS LIVROS E AUTORES --- */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    border: none !important;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(26, 54, 93, 0.12) !important; /* Sombra azulada */
+}
+
+/* --- SESSÃO DE BOAS VINDAS (HERO) --- */
+.hero-section {
+    background: linear-gradient(135deg, var(--cor-primaria) 0%, #2A528A 100%);
+    color: white;
+    padding: 60px 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 20px rgba(26, 54, 93, 0.2);
+}
+
+.hero-section h1, .hero-section p {
+    color: white !important;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o body ocupe a tela toda */
+}
+
+/* O conteúdo principal cresce para empurrar o rodapé para baixo */
+.container {
+    flex: 1; 
+}
+
+.footer {
+    position: relative !important; /* Tira o absolute que estava quebrando a tela */
+    bottom: auto !important;
+    background-color: var(--cor-primaria); /* Fundo azul escuro */
+    color: white !important;
+    padding: 20px 0;
+    margin-top: 60px !important;
+    border-top: none !important;
+}
+
+/* Força o texto do rodapé a ficar branco para dar leitura no fundo azul */
+.footer .text-muted {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* --- CARROSSEL HORIZONTAL DE LIVROS --- */
+.scrolling-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 20px; /* Espaço para a sombra dos cards não cortar */
+    gap: 20px; /* Espaçamento entre os livros */
+    -webkit-overflow-scrolling: touch; /* Deixa a rolagem suave no celular */
+}
+
+/* Estilizando a barra de rolagem para ficar elegante */
+.scrolling-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+.scrolling-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 4px;
+}
+.scrolling-wrapper::-webkit-scrollbar-thumb {
+    background: var(--cor-primaria); /* Usa o azul da Corvinal */
+    border-radius: 4px;
+}
+
+/* O tamanho fixo de cada livro no carrossel */
+.scrolling-wrapper .card-item {
+    flex: 0 0 auto; /* Impede que o card encolha */
+    width: 280px; /* Largura ideal para a capa e o texto */
+}

@@ -1,0 +1,33 @@
+@model BibliotecaWeb.Models.Autor
+
+@{
+    ViewData["Title"] = Model.Nome;
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <img src="@Model.Foto" alt="Foto de @Model.Nome" class="img-fluid rounded-circle shadow mb-3" style="width: 200px; height: 200px; object-fit: cover;">
+            <h3>@Model.Nome</h3>
+            <p class="text-muted">Nascimento: @Model.DataNascimento</p>
+        </div>
+        <div class="col-md-8">
+            <h4>Biografia</h4>
+            <p>@Model.Biografia</p>
+
+            <h4 class="mt-4">Obras Conhecidas</h4>
+            <ul class="list-group">
+                @foreach (var livro in Model.LivrosRelacionados)
+                {
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        @livro.Titulo
+                        <a href="@Url.Action("Detalhes", "Livro", new { id = livro.Id })" class="btn btn-sm btn-outline-primary">Ver Livro</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="mt-4">
+        <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Voltar para a Página Inicial</a>
+    </div>
+</div>

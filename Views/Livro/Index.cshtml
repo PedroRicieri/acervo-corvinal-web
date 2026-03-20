@@ -1,0 +1,26 @@
+@model IEnumerable<BibliotecaWeb.Models.Livro>
+
+@{
+    ViewData["Title"] = "Todos os Livros";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center fw-bold" style="color: var(--cor-primaria);">Catálogo de Livros</h2>
+    <hr class="mb-5" />
+
+    <div class="row">
+        @foreach (var livro in Model)
+        {
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm h-100 border-0">
+                    <img src="@livro.Capa" class="card-img-top rounded" alt="Capa de @livro.Titulo" style="height: 350px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column px-3">
+                        <h6 class="card-title fw-bold">@livro.Titulo</h6>
+                        <p class="card-text text-muted small mt-auto">Autor: @livro.Autor.Nome <br> Ano: @livro.AnoPublicacao</p>
+                        <a href="@Url.Action("Detalhes", "Livro", new { id = livro.Id })" class="btn btn-sm btn-outline-primary w-100 mt-2">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
