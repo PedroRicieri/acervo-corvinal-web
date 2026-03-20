@@ -38,4 +38,4 @@ Certifique-se de ter instalado em sua máquina:
 1. **Clone o repositório**
    Abra o seu terminal e digite o comando abaixo para clonar o projeto:
    ```bash
-   git clone [https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git](https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git)
+   git clone [https://github.com/PedroRicieri/acervo-corvinal-web.git](https://github.com/PedroRicieri/acervo-corvinal-web.git)
